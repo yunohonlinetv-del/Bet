@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold-50: #fffaf0;
+  --color-gold-100: #fef3c7;
+  --color-gold-200: #fde68a;
+  --color-gold-300: #fcd34d;
+  --color-gold-400: #fbbf24;
+  --color-gold-500: #f59e0b;
+  --color-gold-600: #d97706;
+  --color-gold-700: #b45309;
+  --color-gold-800: #92400e;
+  --color-gold-900: #78350f;
+  
+  --color-royal-black: #050505;
+  --color-royal-dark: #121212;
+  --color-royal-card: #1a1a1a;
+  
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-royal-black text-white antialiased;
+  }
+}
+
+@layer components {
+  .gold-gradient {
+    @apply bg-gradient-to-r from-gold-600 via-gold-400 to-gold-600;
+  }
+  
+  .gold-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-b from-gold-200 via-gold-400 to-gold-600;
+  }
+  
+  .gold-glow {
+    @apply shadow-[0_0_15px_rgba(245,158,11,0.3)];
+  }
+  
+  .gold-glow-hover {
+    @apply hover:shadow-[0_0_25px_rgba(245,158,11,0.5)] transition-shadow duration-300;
+  }
+  
+  .royal-card {
+    @apply bg-royal-card border border-white/5 rounded-2xl overflow-hidden backdrop-blur-sm;
+  }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px rgba(245,158,11,0.2);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(245,158,11,0.6);
+  }
+}
+
